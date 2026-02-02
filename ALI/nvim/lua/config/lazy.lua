@@ -41,6 +41,18 @@ end
 -- Setup lazy.nvim with the specified configuration
 require("lazy").setup({
   spec = {
+
+    {
+      "LazyVim/LazyVim",
+      import = "lazyvim.plugins",
+      opts = {
+        colorscheme = "solarized-osaka",
+        news = {
+          lazyvim = true,
+          neovim = true,
+        },
+      },
+    },
     -- Add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- Import any extra modules here
@@ -76,6 +88,7 @@ require("lazy").setup({
 
     -- Import/override with your plugins
     { import = "plugins" },
+    { "ellisonleao/gruvbox.nvim", priority = 1000, config = true },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.

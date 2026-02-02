@@ -4,7 +4,8 @@
     "lazyvim.plugins.extras.util.mini-hipatterns"
   ],
   "news": {
-    "NEWS.md": "11866"
+    "NEWS.md": "11866",
+    "doc/news.txt": "25653"
   },
   "version": 8
 }

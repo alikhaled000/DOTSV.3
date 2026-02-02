@@ -11,3 +11,23 @@ require("neo-tree").setup({
     position = "right",
   },
 })
+local dap = require("dap")
+
+dap.configurations.cpp = {
+  {
+    name = "Launch file",
+    type = "codelldb",
+    request = "launch",
+    program = function()
+      -- This will ask you for the path to the executable
+      -- Or you can hardcode it like: return vim.fn.getcwd() .. '/main'
+      return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+    end,
+    cwd = "${workspaceFolder}",
+    stopOnEntry = false,
+  },
+}
+
+-- Use the same config for C and Rust
+dap.configurations.c = dap.configurations.cpp
+dap.configurations.rust = dap.configurations.cpp
