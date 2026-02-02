@@ -1,0 +1,71 @@
+#include <cmath>
+#include <ctime>
+#include <iostream>
+#include <utility>
+
+using namespace std;
+
+int ReadPositiveNumber(string Message)
+
+{
+
+  int Number = 0;
+
+  do
+
+  {
+
+    cout << Message << endl;
+
+    cin >> Number;
+
+  } while (Number <= 0);
+
+  return Number;
+}
+void Swap(int &A, int &B) {
+  int Temp;
+  Temp = A;
+  A = B;
+  B = Temp;
+}
+int RandomNumber(int From, int To) {
+  int randNum = rand() % (To - From + 1) + From;
+  return randNum;
+}
+void FillArray(int arr[100], int &arrLength) {
+
+  for (int i = 0; i < arrLength; i++)
+    arr[i] = RandomNumber(1, 100);
+}
+
+void AreeyShuffle(int arrSource[100], int arrD[100], int arrLength) {
+  for (int i = 0; i < arrLength; i++) {
+    arrD[i] = arrSource[arrLength - 1 - i];
+  }
+}
+
+void PrintArray(int arr[100], int arrLength) {
+  for (int i = 0; i < arrLength; i++)
+    cout << arr[i] << " ";
+
+  cout << "\n";
+}
+
+int main() {
+  srand((unsigned)time(NULL));
+
+  int arr[100];
+  int arrLength = ReadPositiveNumber("Enter elements Number\n");
+
+  FillArray(arr, arrLength);
+
+  int arr2[100];
+  cout << "\nArray 1 elements:\n";
+  PrintArray(arr, arrLength);
+  cout << "\n  Reverced Arrey NUmber is : \n";
+  AreeyShuffle(arr, arr2, arrLength);
+  PrintArray(arr2, arrLength);
+
+  return 0;
+}
